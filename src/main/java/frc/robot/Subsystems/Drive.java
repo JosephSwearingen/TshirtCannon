@@ -51,7 +51,7 @@ public class Drive extends SubsystemBase
     /**
      * Method used to drive the robot using forward and backward speeds.
      * @param forwardSpeed translational forward and backward vector from -1 to 1.
-     * @param rotationalSpeed rotational forward and backward input from -1 to 1.
+     * @param rotationalSpeed rotational clockwise and counterclockwise input from -1 to 1.
      */
     public void arcadeDrive(double forwardSpeed, double rotationalSpeed)
     {
