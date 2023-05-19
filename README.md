@@ -6,5 +6,5 @@ Will be built in Summer of 2023. <br> <br>
 ## Goals for this project:<br>
 - Control drivebase from 2020 Season, <br>
 - Launch T-Shirts using pneumatics, <br>
-- and create a simple easy to use driving experience. ,<br>
+- and create a simple easy to use driving experience.<br>
 
