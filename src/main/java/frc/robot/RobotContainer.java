@@ -28,7 +28,12 @@ public class RobotContainer {
       
 
         /* Sets default periodically reoccuring command for driveSubsystem */
-        driveSubsystem.setDefaultCommand(new DefaultDrive(driverController, driveSubsystem));
+        driveSubsystem.setDefaultCommand(
+        new DefaultDrive(
+        driveSubsystem,
+        () -> driverController.getRawAxis(1),
+        () -> driverController.getRawAxis(4)
+        ));
        
         /* Configures buttons for controllers */
         configureButtonBindings();
