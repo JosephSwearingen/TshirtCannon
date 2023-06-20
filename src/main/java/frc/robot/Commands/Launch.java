@@ -6,47 +6,35 @@ import frc.robot.Subsystems.Pneumatics;
 
 public class Launch extends CommandBase{
     
-    /* Subsystems */
     private Pneumatics pneumaticsSubystem;
 
-    /* Timer instance */
-    private Timer timer;
+    private static Timer timer;
 
-    public Launch(Pneumatics pneumaticsSubystem)
-    {
-        /* Subsystems */
+    public Launch(Pneumatics pneumaticsSubystem) {
         this.pneumaticsSubystem = pneumaticsSubystem; 
     
-        /*  Used so the command scheduler knows that the pneumatics subsystem is in use when the command is executing.  */
         addRequirements(pneumaticsSubystem);
 
-        /* Timer */
         timer = new Timer();
+        timer.reset();
     }
 
 
     @Override
-    public void initialize()
-    {
-        /* Launches the solenoids and then starts a timer. */ 
-        pneumaticsSubystem.activate();
+    public void initialize() {
+        pneumaticsSubystem.launch();
         timer.restart();
         timer.start();
     }
 
     @Override
-    public void execute()
-    {
-        
-    }
+    public void execute() {}
 
     @Override
-    public boolean isFinished()
-    {
-        /* Only finishes command 2 seconds after pneumatics launch. */
-        if(timer.hasElapsed(2))
-        {
-            pneumaticsSubystem.deactivate();
+    public boolean isFinished() {
+        if(timer.hasElapsed(2)) {
+            pneumaticsSubystem.retract();
+            timer.stop();
             return true; 
         }
         return false;
